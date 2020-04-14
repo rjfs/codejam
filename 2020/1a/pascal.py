@@ -13,11 +13,13 @@ def solve(s):
         b = tri[i+1][j+1]
         c = tri[i][j+1] if j < len(tri[i]) - 1 else None
 
+        # First 2 if statements will walk in direction of the biggest element
         if (b >= a and path_sum + sum(tri[i+1][j+1:]) <= s) or (path_sum + b == s) or (c is None):
             i += 1
             j += 1
         elif (path_sum + a == s) or (a > b and path_sum + sum(tri[i+1][j:]) <= s):
             i += 1
+        # For the last 2 statements, we cannot go along the biggest element anymore, or the sum will be surpassed
         elif path_sum + sum(tri[i + 1][j + 1:]) <= s:
             i += 1
             j += 1
