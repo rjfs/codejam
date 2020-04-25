@@ -3,21 +3,6 @@ import expogo
 
 
 @pytest.mark.parametrize(
-    ("n", "result"), [
-        (0, tuple()),
-        (1, (1,)),
-        (2, (2,)),
-        (3, (1, 2)),
-        (5, (1, 4)),
-        (12, (8, 4)),
-        (15, (1, 2, 4, 8)),
-    ]
-)
-def _test_decompose(n, result):
-    assert set(expogo.decompose(n)) == set(result)
-
-
-@pytest.mark.parametrize(
     ("x", "y", "len_result", "is_possible"), [
         (2, 3, 3, True),
         (3, 2, 3, True),
