@@ -7,10 +7,10 @@ def solve(u, requests):
             counts[c] = 1
         else:
             counts[c] += 1
-
+    # Sort by counts
     s_counts = sorted([(k, v) for k, v in counts.items()], key=lambda k: k[1], reverse=True)
+    # Get dictionary of numbers to corresponding char
     d = {str(i + 1): c[0] for i, c in enumerate(s_counts)}
-
     # Find 0
     for r in requests:
         for c in r[1]:
